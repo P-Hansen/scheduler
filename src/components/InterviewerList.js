@@ -5,6 +5,7 @@ import InterviewerListItem from "components/InterviewerListItem.js"
 export default function InterviewerList (props) {
     const [interviewer, setInterviewer] = useState(props.interviewer);
 
+    // if (!props.interviewers) return
     const interviewers = props.interviewers.map(interviewer => {
         return (
           <InterviewerListItem
