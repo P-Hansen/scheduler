@@ -5,7 +5,8 @@ import InterviewerList from "components/InterviewerList";
 
 export default function Form (props) {
     const [name, setName] = useState(props.name || "");
-    const [interviewer, setInterviewer] = useState(props.interviewer || null);
+    const [interviewer, setInterviewer] = useState(props.interviewer.id);
+    console.log("this is the empty interviewer", interviewer);
 
     function reset() {
         setName("");
@@ -14,7 +15,14 @@ export default function Form (props) {
     };
 
     function save() {
-        props.onSave(name,interviewer);
+        if (interviewer) {
+            const interview = props.onSave(name, interviewer);
+            props.transition("SAVING");
+            props.bookInterview(props.id, interview)
+            .then(()=>{
+                props.transition("SHOW");
+            })
+        }
     }
 
     return (
@@ -22,7 +30,7 @@ export default function Form (props) {
     <section className="appointment__card-left">
         <form onSubmit={event => event.preventDefault()} autoComplete="off">
         <input
-            onInput={(event) => {setName(event.target.value)}}
+            onChange={(event) => {setName(event.target.value)}}
             className="appointment__create-input text--semi-bold"
             name={name}
             type="text"
@@ -37,8 +45,8 @@ export default function Form (props) {
     </section>
     <section className="appointment__card-right">
         <section className="appointment__actions">
-        <Button onClick={reset} danger>Cancel</Button>
-        <Button onClick={save} confirm>Save</Button>
+            <Button onClick={reset} danger>Cancel</Button>
+            <Button onClick={save} confirm>Save</Button>
         </section>
     </section>
     </main>

@@ -30,7 +30,6 @@ function getInterviewersForDay(state, day) {
             filteredDays.push(state.interviewers[id]);
         };
     };
-    console.log("is this f-ed?", filteredDays);
     return filteredDays;
 };
 
