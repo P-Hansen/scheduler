@@ -33,10 +33,10 @@ export default function useApplicationData() {
             const newSpots = updateSpotsCount(day);
             state.days[arraySlot].spots =  newSpots;
           });
+          setState({...state})
         }
-        setState({...state})
       }, [state.appointments])
-      
+
       function updateSpotsCount(dayObject) {
         let count = 5;
         dayObject.appointments.map((appointmentNumber)=>{
