@@ -22,7 +22,7 @@ export default function useApplicationData() {
           axios.get("http://localhost:8001/api/interviewers")
         ])
         .then((all)=>{
-          console.log(all[2].data);
+          //console.log(all[2].data);
           setState((prev)=>({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
         })
       }, []);
@@ -65,15 +65,6 @@ export default function useApplicationData() {
         console.log("appointment", appointment);
         return axios.put(`http://localhost:8001/api/appointments/${id}`, appointment)
         .then((res)=>{
-            // for(const daysOfTheWeek of state.days) {
-            //   for(const appointmentNumber of daysOfTheWeek.appointments) {
-            //     console.log(daysOfTheWeek)
-            //     if (appointmentNumber === id) {
-            //       console.log(daysOfTheWeek);
-            //       daysOfTheWeek.spots -= 1;
-            //     }
-            //   };
-            // };
             setState({
                 ...state,
                 appointments: appointments,
@@ -96,15 +87,7 @@ export default function useApplicationData() {
           setState({
             ...state,
             appointments: appointments,
-        });
-          // for(const daysOfTheWeek of state.days) {
-          //   for(const appointmentNumber of daysOfTheWeek.appointments) {
-          //     if (appointmentNumber === id) {
-          //       daysOfTheWeek.spots += 1;
-          //     }
-          //   };
-          // };
-          // setState({...state});
+          });
         })
       }
     

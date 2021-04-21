@@ -7,6 +7,7 @@ export default function Form (props) {
     const [name, setName] = useState(props.name || "");
     const [interviewer, setInterviewer] = useState(props.interviewer.id);
     console.log("this is the empty interviewer", interviewer);
+    const [error, setError] = useState("");
 
     function reset() {
         setName("");
@@ -14,25 +15,13 @@ export default function Form (props) {
         props.onCancel();
     };
 
-    function save() {
-        if (interviewer) {
-            const interview = props.onSave(name, interviewer);
-            props.transition("SAVING");
-            props.bookInterview(props.id, interview)
-            .then(()=>{
-                props.transition("SHOW");
-            })
-        }
-    }
-
-    const [error, setError] = useState("");
     function validate() {
         if (name === "") {
           setError("Student name cannot be blank");
           return;
         }
         setError("");
-        save();
+        props.onSave(name, interviewer);
       }
 
     return (

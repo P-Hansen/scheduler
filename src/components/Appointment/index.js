@@ -33,16 +33,21 @@ export default function Appointment (props) {
         })
     }
 
-    function book(id, interview) {
-        return props.bookInterview(id, interview)
+    function book(name, interviewer) {
+        transition(SAVING);
+        const interview = props.onSave(name, interviewer);
+        props.bookInterview(props.id, interview)
+            .then(()=>{
+                transition(SHOW);
+            })
             .catch((err)=>{
                 console.log("Save error", err);
                 transition(ERROR_SAVE, true);
             })
     }
-
+        
     return (
-    <article className="appointment">
+    <article data-testid="appointment" className="appointment">
         <header>{props.time}</header>
         {mode === EMPTY && <Empty onAdd={()=>{transition(CREATE);}} />}
         {mode === SHOW && (
@@ -58,10 +63,11 @@ export default function Appointment (props) {
                 name={props.name}
                 interviewers={props.interviewers}
                 onCancel={back}
-                onSave={props.onSave}
-                bookInterview={book}
-                transition={transition}
-                id={props.id}
+                onSave={book}
+                // onSave={props.onSave}
+                // bookInterview={book}
+                // transition={transition}
+                // id={props.id}
                 interviewer={{}}
             />
         )}
@@ -70,10 +76,11 @@ export default function Appointment (props) {
                 name={props.interview.student}
                 interviewers={props.interviewers}
                 onCancel={back}
-                onSave={props.onSave}
-                bookInterview={book}
-                transition={transition}
-                id={props.id}
+                onSave={book}
+                // onSave={props.onSave}
+                // bookInterview={book}
+                // transition={transition}
+                // id={props.id}
                 interviewer={props.interview.interviewer}
             />
         )}
