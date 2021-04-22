@@ -2,14 +2,14 @@
 A single page React app where the user can schedule, edit, and delete appointments with specific interviewers. Made during course work at lighthouse labs.
 
 ## Tech Stack
-*React  
-*Axios  
-*PostgreSQL  
+* React  
+* Axios  
+* PostgreSQL  
 
 ### Testing:  
-*Storybook  
-*Jest  
-*Cypress  
+* Storybook  
+* Jest  
+* Cypress  
   
 ## Screenshots -->
 !["appointments"](https://github.com/P-Hansen/scheduler/blob/master/screenShots/1.png?raw=true)
