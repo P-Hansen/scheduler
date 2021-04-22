@@ -10,10 +10,12 @@ A single page React app where the user can schedule, edit, and delete appointmen
 *Storybook  
 *Jest  
 *Cypress  
-
-<!-- ## Screenshots -->
-<!-- !["GIF of Home/Login"](https://github.com/P-Hansen/quizApp/blob/master/planning/screenShots/login.gif?raw=true) -->
-
+  
+## Screenshots -->
+!["appointments"](https://github.com/P-Hansen/scheduler/blob/master/screenShots/1.png?raw=true)
+!["save"](https://github.com/P-Hansen/scheduler/blob/master/screenShots/2.png?raw=true)
+!["empty"](https://github.com/P-Hansen/scheduler/blob/master/screenShots/3.png?raw=true)
+  
 ## Setup
 
 Install dependencies with `npm install`.
