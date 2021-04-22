@@ -1,4 +1,14 @@
 # Interview Scheduler
+A single page react app where the user can schedule, edit, and delete appointments with specific interviewers. Made during course work at lighthouse labs.
+
+## Tech Stack
+    *React
+    *Axios
+    *PostgreSQL
+Testing:
+    *Storybook
+    *Jest
+    *Cypress
 
 ## Setup
 
@@ -21,3 +31,5 @@ npm test
 ```sh
 npm run storybook
 ```
+
+development sever available [here](https://github.com/P-Hansen/scheduler-api)
