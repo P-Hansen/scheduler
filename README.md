@@ -1,14 +1,18 @@
 # Interview Scheduler
-A single page react app where the user can schedule, edit, and delete appointments with specific interviewers. Made during course work at lighthouse labs.
+A single page React app where the user can schedule, edit, and delete appointments with specific interviewers. Made during course work at lighthouse labs.
 
 ## Tech Stack
-    *React
-    *Axios
-    *PostgreSQL
-Testing:
-    *Storybook
-    *Jest
-    *Cypress
+*React  
+*Axios  
+*PostgreSQL  
+
+### Testing:  
+*Storybook  
+*Jest  
+*Cypress  
+
+<!-- ## Screenshots -->
+<!-- !["GIF of Home/Login"](https://github.com/P-Hansen/quizApp/blob/master/planning/screenShots/login.gif?raw=true) -->
 
 ## Setup
 
