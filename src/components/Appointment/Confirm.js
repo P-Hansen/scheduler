@@ -1,5 +1,6 @@
 import React from "react";
 import "components/Button.scss";
+import Button from "components/Button"
 
 export default function Confirm (props) {
 
@@ -11,8 +12,8 @@ export default function Confirm (props) {
     <main className="appointment__card appointment__card--confirm">
         <h1 className="text--semi-bold">{props.message}</h1>
         <section className="appointment__actions">
-            <button onClick={props.onCancel} danger>Cancel</button>
-            <button onClick={confirm} danger>Confirm</button>
+            <Button onClick={props.onCancel} danger>Cancel</Button>
+            <Button onClick={confirm} danger>Confirm</Button>
         </section>
     </main>
     );
