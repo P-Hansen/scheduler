@@ -21,6 +21,7 @@ export default function useApplicationData() {
         })
       }, []);
 
+      //updates the number of spots when state.appointments changes
       useEffect(()=>{
         if(state.days.length > 0) {
           state.days.map((day, arraySlot)=>{
@@ -31,6 +32,7 @@ export default function useApplicationData() {
         }
       }, [state.appointments])
 
+      //calculates the number of spots in a given day
       function updateSpotsCount(dayObject) {
         let count = 5;
         dayObject.appointments.map((appointmentNumber)=>{
@@ -45,6 +47,7 @@ export default function useApplicationData() {
         setState({ ...state, day: newday });
       }
     
+      //updates state and adds an appointment to the server
       function bookInterview(id, interview) {
         const appointment = {
           ...state.appointments[id],
@@ -55,7 +58,6 @@ export default function useApplicationData() {
           ...state.appointments,
           [id]: appointment
         };
-        console.log("appointment", appointment);
         return axios.put(baseURL + `/api/appointments/${id}`, appointment)
         .then((res)=>{
             setState({
@@ -65,6 +67,7 @@ export default function useApplicationData() {
         });
       }
     
+      //updates state and deletes an appointment from the server
       function deleteCall(id) {
         return axios.delete(baseURL + `/api/appointments/${id}`)
         .then((res)=>{
@@ -84,6 +87,7 @@ export default function useApplicationData() {
         })
       }
     
+      //creates an interview for the book appointment function
       function save(name, interviewer) {
         const interview = {
           student: name,
