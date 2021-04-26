@@ -21,8 +21,10 @@ export default function Appointment (props) {
 
     const { mode, transition, back } = useVisualMode (props.interview ? SHOW : EMPTY);
 
+    //passed down to the "CONFIRM delete" component
     function onDelete(id) {
         transition(DELETING, true);
+        //axios call to delete on the server and update state
         props.deleteCall(id)
         .then(()=>{
             transition(EMPTY);
@@ -33,9 +35,12 @@ export default function Appointment (props) {
         })
     }
 
+    //passed down to the CREATE appointment and EDIT appointment components
     function book(name, interviewer) {
         transition(SAVING);
+        //creating the proper interview object
         const interview = props.onSave(name, interviewer);
+        //axios call to create the interview on the server and update state
         props.bookInterview(props.id, interview)
             .then(()=>{
                 transition(SHOW);
@@ -64,10 +69,6 @@ export default function Appointment (props) {
                 interviewers={props.interviewers}
                 onCancel={back}
                 onSave={book}
-                // onSave={props.onSave}
-                // bookInterview={book}
-                // transition={transition}
-                // id={props.id}
                 interviewer={{}}
             />
         )}
@@ -77,10 +78,6 @@ export default function Appointment (props) {
                 interviewers={props.interviewers}
                 onCancel={back}
                 onSave={book}
-                // onSave={props.onSave}
-                // bookInterview={book}
-                // transition={transition}
-                // id={props.id}
                 interviewer={props.interview.interviewer}
             />
         )}
