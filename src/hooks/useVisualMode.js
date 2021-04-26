@@ -20,10 +20,11 @@ export default function useVisualMode(initial) {
         setHistory((oldHistory) => {
             let newHistory = oldHistory;
             newHistory.pop();
-            if (newHistory.length === 0) {
+            setHistory([...newHistory]);
+            if (history.length === 0) {
                 return [initial];
             }
-            return newHistory;
+            return history;
         });
     }
 

@@ -10,7 +10,6 @@ export default function InterviewerList (props) {
       interviewers: PropTypes.array.isRequired
     };
 
-    // if (!props.interviewers) return
     const interviewers = props.interviewers.map(interviewer => {
         return (
           <InterviewerListItem

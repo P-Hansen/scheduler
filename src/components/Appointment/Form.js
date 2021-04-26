@@ -6,7 +6,6 @@ import InterviewerList from "components/InterviewerList";
 export default function Form (props) {
     const [name, setName] = useState(props.name || "");
     const [interviewer, setInterviewer] = useState(props.interviewer.id);
-    console.log("this is the empty interviewer", interviewer);
     const [error, setError] = useState("");
 
     function reset() {
@@ -36,9 +35,6 @@ export default function Form (props) {
             type="text"
             value={name}
             placeholder="Enter Student Name"
-            /*
-            This must be a controlled component
-            */
         />
         <section className="appointment__validation">{error}</section>
         </form>
