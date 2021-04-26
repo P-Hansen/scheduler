@@ -18,13 +18,12 @@ export default function useVisualMode(initial) {
     function back() {
         setMode(() => history[history.length-2] || history[0]);
         setHistory((oldHistory) => {
-            let newHistory = oldHistory;
+            let newHistory = [...oldHistory];
             newHistory.pop();
-            setHistory([...newHistory]);
-            if (history.length === 0) {
+            if (newHistory.length === 0) {
                 return [initial];
             }
-            return history;
+            return newHistory;
         });
     }
 
