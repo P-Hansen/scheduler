@@ -1,4 +1,4 @@
-
+//given the name of the day eg:"Friday" finds the correct appointments
 function getAppointmentsForDay(state, day) {
     const filteredDays = [];
     const dayObject = state.days.find(record => record.name === day);
@@ -10,6 +10,7 @@ function getAppointmentsForDay(state, day) {
     return filteredDays;
 };
 
+//given an interview object that only contains the interviewer ID returns the correct interviewer
 function getInterview(state, interview) {
     if(!interview || !state.interviewers) {
         return null;
@@ -22,6 +23,7 @@ function getInterview(state, interview) {
     };
 };
 
+//given the name of the day eg:"Friday" finds the correct Interviewers
 function getInterviewersForDay(state, day) {
     const filteredDays = [];
     const dayObject = state.days.find(record => record.name === day);
